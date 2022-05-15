@@ -1,0 +1,28 @@
+{% extends "teamux/layout.html" %}
+{% block content %}
+<h1>Calendario</h1>
+<a href="/calendar/new" class="btn btn-light btn-sm mb-3">Nuevo evento</a>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Organizador</th>
+      <th scope="col">Tema</th>
+      <th scope="col">Inicio</th>
+      <th scope="col">fin</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% if events %}
+      {% for event in events %}
+        <tr>
+          <td>{{ event.organizer.emailAddress.name }}</td>
+          <td>{{ event.subject }}</td>
+          <td>{{ event.start.dateTime|date:'n/d/Y g:i A' }}</td>
+          <td>{{ event.end.dateTime|date:'n/d/Y g:i A' }}</td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+  </tbody>
+</table>
+{% endblock %}
+<!-- </CalendarSnippet> -->

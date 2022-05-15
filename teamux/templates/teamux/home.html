@@ -1,0 +1,13 @@
+{% extends "teamux/layout.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Agenda UX Research</h1>
+  <p class="lead">Organización de las actividades del equipo de UX Research</p>
+  {% if user.is_authenticated %}
+    <h4>Bienvenido {{ user.name }}!</h4>
+    <p>Usa la barra de navegación para empezar.</p>
+  {% else %}
+    <a href="{% url 'signin' %}" class="btn btn-primary btn-large">Click aquí para ingresar</a>
+  {% endif %}
+</div>
+{% endblock %}
